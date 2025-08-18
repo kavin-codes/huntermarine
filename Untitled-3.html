@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us - Hunter Marine Engineering Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- FontAwesome for icons -->
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="about-us-full1.css">
+</head>
+<style>
+   body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #fff;
+      color: #333;
+      line-height: 1.7; /* better readability */
+      font-size: 1.1em; /* base content slightly bigger */
+    }
+    .main-header {
+      background-color: #004080;
+      color: #fff;
+      text-align: center;
+      padding: 20px 30px;
+      border-radius: 50px;
+      font-size: 2em; /* bigger heading */
+      font-weight: bold;
+      margin-bottom: 25px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 30px;
+    }
+    .tab {
+      background-color: #004080;
+      color: #fff;
+      padding: 18px;
+      text-align: center;
+      cursor: pointer;
+      flex: 1;
+      border: 1px solid #fff;
+      transition: background-color 0.3s;
+      font-size: 1.2em; /* bigger tabs */
+      min-width: 180px;
+    }
+    .tab.active {
+      background-color: #002850;
+    }
+    .sub-header {
+      background-color: #004080;
+      color: #fff;
+      text-align: center;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-size: 1.6em; /* bigger sub-header */
+      font-weight: bold;
+      max-width: 500px;
+      margin: 25px auto;
+    }
+    .subsection {
+      margin-bottom: 50px;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .row.reverse {
+      flex-direction: row-reverse;
+    }
+    .image, .list {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .image img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      object-fit: cover;
+      border: 3px solid #004080;
+      border-radius: 0px;
+      margin: auto;
+    }
+    .list {
+      padding: 15px;
+      justify-content: center;
+    }
+    .list h3 {
+      font-size: 1.8em; /* bigger section title */
+      margin-bottom: 20px;
+      color: #002850;
+    }
+    .list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .list li {
+      margin-bottom: 50px;
+      color: #004080;
+      position: relative;
+      padding-left: 30px;
+      font-size: 1.7em; /* bigger content */
+    }
+    .list li::before {
+      content: "✓";
+      color: #004080;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .service-section {
+      display: none;
+    }
+    .service-section.active {
+      display: block;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .row {
+        flex-direction: column;
+        text-align: center;
+      }
+      .row.reverse {
+        flex-direction: column;
+      }
+      .image img {
+        max-width: 100%;
+      }
+      .list {
+        align-items: center;
+      }
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+        font-size: 1em; /* still readable on mobile */
+      }
+      .main-header {
+        font-size: 1.5em;
+        padding: 12px 15px;
+      }
+      .sub-header {
+        font-size: 1.2em;
+      }
+      .tab {
+        font-size: 1em;
+        padding: 12px;
+      }
+      .list h3 {
+        font-size: 1.4em;
+      }
+      .list li {
+        font-size: 1.1em;
+        margin-bottom: 12px;
+      }
+    }
+
+     .section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      gap: 0;
+      flex-wrap: wrap; /* ensures wrapping on small screens */
+    }
+
+    /* Left Image (treated as single block) */
+    .left-image {
+      flex: 1;
+    }
+
+    .left-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 0;
+      display: block;
+    }
+
+    /* Right Content */
+    .right-content {
+      flex: 1;
+      background-color: #1f4b6f;
+      color: #fff;
+      padding: 30px;
+      border-radius: 0;
+    }
+
+    .right-content h2 {
+      background: #214d70;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .right-content p {
+      font-size: 24.5px; /* Increased size */
+      line-height: 1.8; /* Better readability */
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 992px) {
+      .section {
+        flex-direction: column; /* stack vertically */
+      }
+
+      .right-content {
+        padding: 20px;
+        font-size: 18px;
+      }
+
+      .right-content p {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .right-content {
+        padding: 15px;
+      }
+
+      .right-content h2 {
+        font-size: 18px;
+        padding: 8px 16px;
+      }
+
+      .right-content p {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+    }
+
+     body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #1f3b5d;
+    }
+
+    .container {
+      display: flex;
+      align-items: flex-start;
+      gap: 180px;
+      max-width: 1500px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .container img {
+      width: 45%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .services {
+      width: 100%;
+    }
+
+    .services h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      text-align: left;
+    }
+
+    .services ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    .services ul li {
+      margin-bottom: 35px;
+      font-size: 20px;
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        gap: 40px;
+        padding: 10px;
+      }
+
+      .container img {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .services ul li {
+        margin-bottom: 30px;
+        font-size: 18px;
+      }
+
+      .services h2 {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+
+      .services ul li {
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+
+      .services h2 {
+        font-size: 20px;
+      }
+    }
+/* new*/
+
+     .content-box {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .content-box h1 {
+      font-size: 28px;
+      background-color: #1f4b7a;
+      color: #fff;
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 25px;
+      margin-bottom: 30px;
+    }
+
+    .content-box p {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+
+    .content-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto 25px;
+      max-width: 400px;
+      text-align: left;
+    }
+
+    .content-box ul li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
+    .content-box ul li::before {
+      content: '•';
+      color: #1f4b7a;
+      position: absolute;
+      left: 0;
+      font-size: 22px;
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 600px) {
+      .content-box {
+        padding: 30px 20px;
+      }
+
+      .content-box h1 {
+        font-size: 22px;
+        padding: 10px 20px;
+      }
+
+      .content-box p, .content-box ul li {
+        font-size: 16px;
+      }
+    }
+  
+</style>
+<body>
+  <!-- Hero Section with Navbar -->
+  <section class="hero-bg-section">
+    <div class="hero-content">
+      <!-- Header/Navbar -->
+      <header class="header">
+        <div class="logo">
+          <img src="/images/logo/HMES.png" alt="Hunter Marine Engineering Logo">
+        </div>
+         <div class="nav-search-wrapper">
+      <nav>
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">ABOUT US</a></li>
+    <li><a href="divisions.html">DIVISIONS</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</nav>
+      <div class="search-bar">
+        <input type="text" placeholder="SEARCH" />
+        <button><i class="fa fa-search"></i></button>
+      </div>
+    
+      </header>
+      <!-- Hero Text Content -->
+      <div class="hero-row">
+        <div class="hero-left">
+          <h1>DRIVEN BY QUALITY<br>DEFINED BY EXPERTISE</h1>
+          <div class="goals">
+            <b>Our goal is :</b>
+            <ol>
+              <li>Total customer satisfaction</li>
+              <li>Continuous improvement</li>
+              <li>Up-to-date technology</li>
+              <li>Workforce technology</li>
+            </ol>
+          </div>
+          <button class="cta-btn">
+            EXPLORE OUR SERVICES
+            <span><i class="fa fa-arrow-up-right-from-square"></i></span>
+          </button>
+        </div>
+        <!-- No right image: background image is handled in CSS -->
+      </div>
+    </div>
+  </section>
+
+<br>
+
+   <div class="main-header">SHIPS REPAIRS & SPARES</div>
+
+  <div class="tabs">
+    <div class="tab active" data-target="fabrication">Fabrication Services</div>
+    <div class="tab" data-target="electrical">Electrical Services</div>
+    <div class="tab" data-target="mechanical">Mechanical Services</div>
+    <div class="tab" data-target="automation">Automation Services</div>
+  </div>
+
+  <div id="fabrication" class="service-section active">
+    <div class="sub-header">FABRICATION SERVICES</div>
+
+    <div class="subsection">
+      <div class="row">
+        <div class="image">
+          <img src="/images/divison1.png" alt="Workers performing steel jobs on ship hull">
+        </div>
+        <div class="list">
+          <h3>STEEL JOBS</h3>
+          <ul>
+            <li>Attendance in Singapore, Malaysia, Indonesia and at anchorage.</li>
+            <li>Steel Repairs of Hull and structures inside tanks.</li>
+            <li>Fabrication/ Installation of outfitting structures.</li>
+            <li>Class-approved welders for various materials and grades.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="row reverse">
+        <div class="image">
+          <img src="/images/Gemini_Generated_Image_u8g23yu8g23yu8g2.png" alt="Workers welding pipes">
+        </div>
+        <div class="list">
+          <h3>PIPING JOBS</h3>
+          <ul>
+            <li>Renewals of piping systems for ocean going vessels to Crew Boats.</li>
+            <li>Piping jobs involving various material grades and sizes.</li>
+            <li>Repair of tubing and fittings.</li>
+            <li>Class-approved welders for various materials and grades.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <!-- Left Side (One Image) -->
+    <div class="left-image">
+      <img src="/images/dividsion 3.png" alt="Electrical Services">
+    </div>
+
+    <!-- Right Side (Text Content) -->
+    <div class="right-content">
+      <p>
+        We specialize in comprehensive electrical services including alternator and starting
+        motor servicing and rewinding. Our expertise extends to AC and DC motor servicing,
+        rewinding and dynamic balancing to ensure optimal performance. We handle the servicing
+        of main switchboards, panel fabrication and installation with breakers and DOL switches.
+        Additionally, we provide reliable replacement of electrical equipment, re-wiring, and
+        on-board troubleshooting and inspections to quickly identify and resolve electrical issues.
+      </p>
+    </div>
+  </div>
+  
+<br>
+  <div class="container">
+    <img src="/images/b.png" alt="Automation Services ">
+    <div class="services">
+      <h2>Automation Services</h2>
+      <ul>
+        <li>Engine control & monitor system</li>
+        <li>Ship's central alarm system</li>
+        <li>Generator alarm & protection system</li>
+        <li>Main switchboard automation</li>
+        <li>Fire detection and fire alarm systems</li>
+        <li>Main & auxiliary engine oil mist detection system</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="content-box">
+    <h1>CHARTERING BULK CARGOES</h1>
+    <p>Hunter deals with bulk chartering of:</p>
+    <ul>
+      <li>Petcoke</li>
+      <li>Anthracite coal</li>
+      <li>Needle coke</li>
+    </ul>
+    <p>Through our Chartering Hubs.</p>
+  </div>
+
+
+
+  <!-- Placeholder sections -->
+  <div id="electrical" class="service-section">
+    <div class="sub-header">ELECTRICAL SERVICES</div>
+    <p style="font-size:1.3em;">Content for Electrical Services...</p>
+  </div>
+  <div id="mechanical" class="service-section">
+    <div class="sub-header">MECHANICAL SERVICES</div>
+    <p style="font-size:1.3em;">Content for Mechanical Services...</p>
+  </div>
+  <div id="automation" class="service-section">
+    <div class="sub-header">AUTOMATION SERVICES</div>
+    <p style="font-size:1.3em;">Content for Automation Services...</p>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('.service-section');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        sections.forEach(s => s.classList.remove('active'));
+        document.getElementById(tab.dataset.target).classList.add('active');
+      });
+    });
+  </script>
+<br>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/images/logo/logo_white_text.png" alt="Hunter Marine Engineering Logo">
+        <div class="footer-contacts">
+  <div><i class="fa fa-phone"></i> 
+    <a href="tel:+918220865106">+91 8220865106</a>
+  </div>
+  <div><i class="fa fa-envelope"></i> 
+    <a href="mailto:info@huntermarine.in">info@huntermarine.in</a>
+  </div>
+</div>
+
+         <span>FOLLOW NOW </span>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-google"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+       <div class="footer-nav">
+  <a href="index.html">HOME</a>
+  <a href="about.html">ABOUT US</a>
+  <a href="services.html">SERVICES</a>
+  <a href="contact.html">CONTACT</a>
+</div>
+
+        <div class="footer-subscribe">
+          <span>SUBSCRIBE NOW</span>
+           <span>ENTER YOUR EMAIL  </span>
+          
+  <form class="subscribe-box underline-style" onsubmit="event.preventDefault(); alert('Subscribed!');">
+    <input type="email" placeholder="Enter Your Email" required>
+    <button type="submit" class="btn">Subscribe</button>
+  </form>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="underline-line"></div>
+
+  </footer>
+</body>
+</html>
